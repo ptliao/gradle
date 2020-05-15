@@ -72,6 +72,7 @@ import org.gradle.internal.resolve.resolver.ResolveContextToComponentResolver
 import org.gradle.internal.resolve.result.BuildableComponentIdResolveResult
 import org.gradle.internal.resolve.result.BuildableComponentResolveResult
 import org.gradle.util.AttributeTestUtil
+import org.gradle.util.TestUtil
 import spock.lang.Specification
 
 import static org.gradle.api.internal.artifacts.DefaultModuleVersionIdentifier.newId
@@ -106,7 +107,7 @@ class DependencyGraphBuilderTest extends Specification {
             args[0].execute(queue)
         }
     }
-    def dependencySubstitutionApplicator = new DefaultDependencySubstitutionApplicator(Mock(Action))
+    def dependencySubstitutionApplicator = new DefaultDependencySubstitutionApplicator(Mock(Action), TestUtil.instantiatorFactory().decorateScheme().instantiator())
     def componentSelectorConverter = Mock(ComponentSelectorConverter) {
         getModule(_) >> { ComponentSelector selector ->
             DefaultModuleIdentifier.newId(selector.group, selector.module)

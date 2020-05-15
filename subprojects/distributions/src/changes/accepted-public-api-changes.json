@@ -1,3 +1,89 @@
 {
-    "acceptedApiChanges": []
+    "acceptedApiChanges": [
+        {
+            "type": "org.gradle.api.artifacts.ArtifactSelectionDetails",
+            "member": "Class org.gradle.api.artifacts.ArtifactSelectionDetails",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactSelectionDetails",
+            "member": "Method org.gradle.api.artifacts.ArtifactSelectionDetails.getRequestedSelectors()",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactSelectionDetails",
+            "member": "Method org.gradle.api.artifacts.ArtifactSelectionDetails.hasSelectors()",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactSelectionDetails",
+            "member": "Method org.gradle.api.artifacts.ArtifactSelectionDetails.selectArtifact(java.lang.String,java.lang.String,java.lang.String)",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },{
+            "type": "org.gradle.api.artifacts.ArtifactSelectionDetails",
+            "member": "Method org.gradle.api.artifacts.ArtifactSelectionDetails.selectArtifact(org.gradle.api.artifacts.ArtifactVariantSelector)",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactVariantSelector",
+            "member": "Class org.gradle.api.artifacts.ArtifactVariantSelector",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactVariantSelector",
+            "member": "Method org.gradle.api.artifacts.ArtifactVariantSelector.getClassifier()",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactVariantSelector",
+            "member": "Method org.gradle.api.artifacts.ArtifactVariantSelector.getExtension()",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.ArtifactVariantSelector",
+            "member": "Method org.gradle.api.artifacts.ArtifactVariantSelector.getType()",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": []
+        },
+        {
+            "type": "org.gradle.api.artifacts.DependencySubstitution",
+            "member": "Method org.gradle.api.artifacts.DependencySubstitution.artifactSelection(org.gradle.api.Action)",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": [
+                "Method added to interface"
+            ]
+        },
+        {
+            "type": "org.gradle.api.artifacts.DependencySubstitutions$Substitution",
+            "member": "Method org.gradle.api.artifacts.DependencySubstitutions$Substitution.to(org.gradle.api.artifacts.component.ComponentSelector)",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": [
+                "Method added to interface"
+            ]
+        },
+        {
+            "type": "org.gradle.api.artifacts.DependencySubstitutions$Substitution",
+            "member": "Method org.gradle.api.artifacts.DependencySubstitutions$Substitution.usingClassifier(java.lang.String)",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": [
+                "Method added to interface"
+            ]
+        },
+        {
+            "type": "org.gradle.api.artifacts.DependencySubstitutions$Substitution",
+            "member": "Method org.gradle.api.artifacts.DependencySubstitutions$Substitution.withoutClassifier()",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": [
+                "Method added to interface"
+            ]
+        }
+    ]
 }

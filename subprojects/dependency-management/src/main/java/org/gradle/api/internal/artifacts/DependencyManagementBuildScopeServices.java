@@ -502,7 +502,8 @@ class DependencyManagementBuildScopeServices {
                                                                 ImmutableAttributesFactory attributesFactory,
                                                                 VersionSelectorScheme versionSelectorScheme,
                                                                 VersionParser versionParser,
-                                                                ComponentMetadataSupplierRuleExecutor componentMetadataSupplierRuleExecutor) {
+                                                                ComponentMetadataSupplierRuleExecutor componentMetadataSupplierRuleExecutor,
+                                                                InstantiatorFactory instantiatorFactory) {
         return new DefaultArtifactDependencyResolver(
             buildOperationExecutor,
             resolverFactories,
@@ -515,7 +516,8 @@ class DependencyManagementBuildScopeServices {
             attributesFactory,
             versionSelectorScheme,
             versionParser,
-            componentMetadataSupplierRuleExecutor);
+            componentMetadataSupplierRuleExecutor,
+            instantiatorFactory);
     }
 
     ProjectPublicationRegistry createProjectPublicationRegistry() {
