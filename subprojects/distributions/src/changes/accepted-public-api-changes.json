@@ -84,6 +84,13 @@
             "changes": [
                 "Method added to interface"
             ]
+        },{
+            "type": "org.gradle.api.artifacts.DependencyResolveDetails",
+            "member": "Method org.gradle.api.artifacts.DependencyResolveDetails.artifactSelection(org.gradle.api.Action)",
+            "acceptation": "Will ship in 6.6, remove after branching",
+            "changes": [
+                "Method added to interface"
+            ]
         }
     ]
 }
