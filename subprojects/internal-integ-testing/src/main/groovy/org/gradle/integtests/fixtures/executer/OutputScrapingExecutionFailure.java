@@ -15,6 +15,7 @@
  */
 package org.gradle.integtests.fixtures.executer;
 
+import junit.framework.AssertionFailedError;
 import org.gradle.internal.Pair;
 import org.gradle.util.TextUtil;
 import org.hamcrest.Matcher;
@@ -44,6 +45,7 @@ public class OutputScrapingExecutionFailure extends OutputScrapingExecutionResul
     // with normalized line endings
     private final List<String> causes = new ArrayList<>();
     private final LogContent mainContent;
+    private boolean hasCheckedForAdditionalFailures;
 
     static boolean hasFailure(String error) {
         return FAILURE_PATTERN.matcher(error).find();
@@ -173,6 +175,7 @@ public class OutputScrapingExecutionFailure extends OutputScrapingExecutionResul
 
     @Override
     public ExecutionFailure assertHasFailures(int count) {
+        hasCheckedForAdditionalFailures = true;
         assertThat(this.descriptions.size(), equalTo(count));
         if (count == 1) {
             assertThat(summary, equalTo("Build failed with an exception."));
@@ -248,6 +251,14 @@ public class OutputScrapingExecutionFailure extends OutputScrapingExecutionResul
     @Override
     public DependencyResolutionFailure assertResolutionFailure(String configurationPath) {
         return new DependencyResolutionFailure(this, configurationPath);
+    }
+
+    @Override
+    public void assertResultVisited() {
+        super.assertResultVisited();
+        if (!hasCheckedForAdditionalFailures && descriptions.size() > 1) {
+            throw new AssertionFailedError("Build failed with more than one exception, but the number of exceptions was not checked during the test using assertHasFailures(n)");
+        }
     }
 
     private static class Problem {
