@@ -53,6 +53,9 @@ tasks {
 
     withType<IntegrationTest>().configureEach {
         dependsOn(testEnvironment)
+        inputs.dir(fileTree(buildDir.resolve("repository")))
+            .withPropertyName("localRepository")
+            .withPathSensitivity(PathSensitivity.RELATIVE)
     }
 
     val writeFuturePluginVersions by registering {
