@@ -61,13 +61,13 @@ class AbstractIntegrationSpec extends Specification {
     final TestNameTestDirectoryProvider temporaryFolder = new TestNameTestDirectoryProvider(getClass())
 
     GradleDistribution distribution = new UnderDevelopmentGradleDistribution(getBuildContext())
-    private GradleExecuter _executor
+    private GradleExecuter executor
 
     GradleExecuter getExecuter() {
-        if (_executor == null) {
-            _executor = createExecuter()
+        if (executor == null) {
+            executor = createExecuter()
         }
-        return _executor
+        return executor
     }
 
     BuildTestFixture buildTestFixture = new BuildTestFixture(temporaryFolder)
@@ -101,10 +101,10 @@ class AbstractIntegrationSpec extends Specification {
     }
 
     private void recreateExecuter() {
-        if (_executor != null) {
-            _executor.cleanup()
+        if (executor != null) {
+            executor.cleanup()
         }
-        _executor = null
+        executor = null
     }
 
     GradleExecuter createExecuter() {
