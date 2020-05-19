@@ -81,7 +81,7 @@ testFilesCleanup {
 integrationTestUsesSampleDir("subprojects/plugin-development/src/main")
 
 tasks.withType<org.gradle.gradlebuild.test.integrationtests.IntegrationTest>().configureEach {
-    inputs.file(project(":toolingApi").buildDir.resolve("shaded-jar/gradle-tooling-api-shaded-${rootProject.buildVersion.baseVersion}"))
+    inputs.file(project(":toolingApi").buildDir.resolve("shaded-jar/gradle-tooling-api-shaded-${rootProject.buildVersion.baseVersion}.jar"))
         .withPropertyName("fatToolingApiJar")
         .withPathSensitivity(PathSensitivity.RELATIVE)
         .withNormalizer(ClasspathNormalizer::class)
