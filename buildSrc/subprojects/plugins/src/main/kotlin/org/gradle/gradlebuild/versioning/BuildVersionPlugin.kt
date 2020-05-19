@@ -16,6 +16,8 @@
 
 package org.gradle.gradlebuild.versioning
 
+import ext
+import org.eclipse.jgit.storage.file.FileRepositoryBuilder
 import org.gradle.api.Describable
 import org.gradle.api.InvalidUserDataException
 import org.gradle.api.Plugin
@@ -33,8 +35,6 @@ import org.gradle.gradlebuild.BuildEnvironment.CI_ENVIRONMENT_VARIABLE
 import org.gradle.kotlin.dsl.*
 import java.text.SimpleDateFormat
 import java.util.Date
-import org.eclipse.jgit.storage.file.FileRepositoryBuilder
-import ext
 
 
 class BuildVersionPlugin : Plugin<Project> {
@@ -48,9 +48,9 @@ class BuildVersionPlugin : Plugin<Project> {
 
 private
 fun Project.setBuildGitVersion() {
-    val repository = FileRepositoryBuilder().setGitDir(rootProject.projectDir.resolve(".git")).build()
+    val repository by lazy { FileRepositoryBuilder().setGitDir(rootProject.projectDir.resolve(".git")).build() }
     ext["gradleBuildBranch"] = System.getenv("BUILD_BRANCH") ?: repository.branch
-    ext["gradleBuildCommitId"] = repository.resolve(repository.fullBranch).name
+    ext["gradleBuildCommitId"] = System.getenv("BUILD_COMMIT_ID") ?: repository.resolve(repository.fullBranch).name
 }
 
 

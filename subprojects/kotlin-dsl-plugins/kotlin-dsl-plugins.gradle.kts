@@ -132,7 +132,7 @@ bundledGradlePlugin(
 // testing ------------------------------------------------------------
 tasks.withType<IntegrationTest>().configureEach {
     dependsOn("publishPluginsToTestRepository")
-    inputs.files(fileTree(buildDir.resolve("repository")))
+    inputs.dir(fileTree(buildDir.resolve("repository")))
         .withPropertyName("localRepository")
         .withPathSensitivity(PathSensitivity.RELATIVE)
 }
