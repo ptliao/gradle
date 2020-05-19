@@ -16,7 +16,7 @@
 
 import org.gradle.gradlebuild.testing.integrationtests.cleanup.WhenNotEmpty
 import org.gradle.gradlebuild.test.integrationtests.integrationTestUsesSampleDir
-import org.gradle.gradlebuild.versioning.buildVersion
+import org.gradle.gradlebuild.test.integrationtests.integrationTestUsesToolingApiFatJar
 
 plugins {
     gradlebuild.distribution.`plugins-api-java`
@@ -78,11 +78,5 @@ testFilesCleanup {
     policy.set(WhenNotEmpty.REPORT)
 }
 
+integrationTestUsesToolingApiFatJar()
 integrationTestUsesSampleDir("subprojects/plugin-development/src/main")
-
-tasks.withType<org.gradle.gradlebuild.test.integrationtests.IntegrationTest>().configureEach {
-    inputs.file(project(":toolingApi").buildDir.resolve("shaded-jar/gradle-tooling-api-shaded-${rootProject.buildVersion.baseVersion}.jar"))
-        .withPropertyName("fatToolingApiJar")
-        .withPathSensitivity(PathSensitivity.RELATIVE)
-        .withNormalizer(ClasspathNormalizer::class)
-}
